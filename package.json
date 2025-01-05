@@ -2,17 +2,18 @@
     "name": "zandclass",
     "version": "1.0.0",
     "description": "ZANDCLASS Documentation",
+    "main": "index.js",
     "scripts": {
       "docs:dev": "vuepress dev docs",
-      "docs:build": "vuepress build docs",
-      "deploy": "gh-pages -d docs/.vuepress/dist"
+      "docs:build": "vuepress build docs"
+    },
+    "dependencies": {
+      "vuepress": "^1.9.10"
     },
     "devDependencies": {
       "@vuepress/plugin-back-to-top": "^1.9.10",
       "@vuepress/plugin-medium-zoom": "^1.9.10",
       "@vuepress/plugin-nprogress": "^1.9.10",
-      "@vuepress/plugin-search": "^1.9.10",
-      "gh-pages": "^6.1.1",
-      "vuepress": "^1.9.10"
+      "@vuepress/plugin-search": "^1.9.10"
     }
   }
