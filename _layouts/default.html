@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title | default: site.github.repository_name }}</title>
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    {% seo %}
+  </head>
+  <body>
+    <!-- 左側導航欄 -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        {% if site.logo %}
+        <div class="logo">
+          <img src="{{site.logo | relative_url}}" alt="{{ site.title | default: site.github.repository_name }}">
+        </div>
+        {% endif %}
+        <h1 class="site-title">{{ site.title | default: site.github.repository_name }}</h1>
+      </div>
+
+      <!-- 導航菜單 -->
+      <div class="nav-menu">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>首頁</a></li>
+          <li><a href="{{ '/guide/' | relative_url }}" {% if page.url contains '/guide/' %}class="active"{% endif %}>使用指南</a></li>
+          <li><a href="{{ '/api/' | relative_url }}" {% if page.url contains '/api/' %}class="active"{% endif %}>API 文檔</a></li>
+          <li><a href="{{ '/examples/' | relative_url }}" {% if page.url contains '/examples/' %}class="active"{% endif %}>示例</a></li>
+        </ul>
+      </div>
+
+      <!-- 底部鏈接 -->
+      <div class="sidebar-footer">
+        {% if site.github.is_project_page %}
+        <p class="repo-link">
+          <a href="{{ site.github.repository_url }}">
+            在 GitHub 上查看
+            <small>{{ site.github.repository_nwo }}</small>
+          </a>
+        </p>
+        {% endif %}
+
+        {% if site.github.is_user_page %}
+        <p class="view">
+          <a href="{{ site.github.owner_url }}">查看 GitHub 個人檔案</a>
+        </p>
+        {% endif %}
+      </div>
+    </nav>
+
+    <!-- 主要內容區域 -->
+    <main class="main-content">
+      <!-- 移動端菜單按鈕 -->
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+      </button>
+
+      <!-- 頁面內容 -->
+      <div class="content">
+        {{ content }}
+      </div>
+
+      <!-- 頁尾 -->
+      <footer class="footer">
+        {% if site.github.is_project_page %}
+        <p>本項目由 <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> 維護</p>
+        {% endif %}
+        <p><small>使用 <a href="https://pages.github.com">GitHub Pages</a> 發布</small></p>
+      </footer>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+      // 移動端菜單切換
+      document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+        this.classList.toggle('active');
+      });
+
+      // 自動隱藏移動端菜單
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
