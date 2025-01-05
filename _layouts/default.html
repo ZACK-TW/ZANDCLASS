@@ -4,51 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 250px;
+            padding: 20px;
+            background: #f8f9fa;
+            overflow-y: auto;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px 40px;
+        }
+
+        /* 基本樣式 */
+        h1, h2, h3 { margin-bottom: 1em; }
+        ul { list-style: none; padding: 0; }
+        a { color: #0366d6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
-    <!-- 左側導航欄 -->
-    <aside class="sidebar">
-        <!-- 網站標題 -->
-        <div class="site-title">
-            <h1>ZANDCLASS</h1>
-            <p>AI賦能 邁向卓越 直至超越</p>
+    <div class="container">
+        <div class="sidebar">
+            <div class="site-header">
+                <h1>ZANDCLASS</h1>
+                <p>AI賦能 邁向卓越 直至超越</p>
+            </div>
+
+            <nav>
+                <section>
+                    <h2>AI應用思維</h2>
+                    <ul>
+                        <li><a href="/guide/ai-framework">AI應用框架</a></li>
+                        <li><a href="/guide/business-framework">商業框架</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>AI應用實踐</h2>
+                    <ul>
+                        <li><a href="/ai-tools/text-generation">文字生成類</a></li>
+                        <li><a href="/ai-tools/image-generation">圖片生成類</a></li>
+                        <li><a href="/ai-tools/audio-generation">聲音生成類</a></li>
+                        <li><a href="/ai-tools/video-generation">影片生成類</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>站長</h2>
+                    <div>
+                        <p>Zachary Wu</p>
+                        <p>藍海培訓顧問有限公司 負責人</p>
+                        <p>著作《智能轉型 AI在商業世界的實踐指南》</p>
+                    </div>
+                </section>
+            </nav>
         </div>
 
-        <!-- 導航鏈接 -->
-        <nav>
-            <div class="nav-group">
-                <h2>AI應用思維</h2>
-                <ul>
-                    <li><a href="{{ '/guide/ai-framework' | relative_url }}">AI應用框架</a></li>
-                    <li><a href="{{ '/guide/business-framework' | relative_url }}">商業框架</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-group">
-                <h2>AI應用實踐</h2>
-                <ul>
-                    <li><a href="{{ '/ai-tools/text-generation' | relative_url }}">文字生成類</a></li>
-                    <li><a href="{{ '/ai-tools/image-generation' | relative_url }}">圖片生成類</a></li>
-                    <li><a href="{{ '/ai-tools/audio-generation' | relative_url }}">聲音生成類</a></li>
-                    <li><a href="{{ '/ai-tools/video-generation' | relative_url }}">影片生成類</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-group">
-                <h2>站長</h2>
-                <div class="author-info">
-                    <p>Zachary Wu</p>
-                    <p>藍海培訓顧問有限公司 負責人</p>
-                    <p>著作《智能轉型 AI在商業世界的實踐指南》</p>
-                </div>
-            </div>
-        </nav>
-    </aside>
-
-    <!-- 主要內容區 -->
-    <main class="main-content">
-        {{ content }}
-    </main>
+        <div class="content">
+            {{ content }}
+        </div>
+    </div>
 </body>
 </html>
