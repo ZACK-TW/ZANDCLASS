@@ -1,19 +1,18 @@
 title: ZANDCLASS
-description: 本處將作為AI落地應用相關資訊彙整站點使用
+description: AI賦能 邁向卓越 直至超越
 theme: jekyll-theme-minimal
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  
-plugins:
-  - jekyll-remote-theme
-  - jekyll-seo-tag
 
-remote_theme: pages-themes/minimal@v0.2.0
+# 作者資訊
+author:
+  name: Zachary Wu
+  title: 藍海培訓顧問有限公司 負責人
+  bio: 曾任職出版業十餘年，具產品、業務、銷售、倉儲、管理 多元職務經歷
+  education: 輔仁大學法律學院畢業
+  skills: AI培訓 / 知識數位化 / 自媒體 / 攝影 / 平面設計 / 出版製作
+  book: 著作《智能轉型 AI在商業世界的實踐指南》
 
-# 側邊欄設置
-sidebar:
+# 導航設定
+navigation:
   - title: AI應用思維
     children:
       - title: AI應用框架
@@ -31,12 +30,11 @@ sidebar:
       - title: 影片生成類
         url: /ai-tools/video-generation
 
-# 網站顏色方案
-colors:
-  primary: "#3eaf7c"
-  secondary: "#2c3e50"
-  accent: "#42b983"
-
-# 自定義樣式
-sass:
-  style: compressed
+# GitHub 設定
+github:
+  is_project_page: true
+  repository_url: https://github.com/ZACK-TW/ZANDCLASS
+  
+# 社交媒體連結
+social:
+  linktree: # 您的 Linktree 連結
