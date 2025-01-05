@@ -1,1 +1,42 @@
-theme: time-machine
+title: ZANDCLASS.AI
+description: 本處將作為AI落地應用相關資訊彙整站點使用
+theme: jekyll-theme-minimal
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+remote_theme: pages-themes/minimal@v0.2.0
+
+# 側邊欄設置
+sidebar:
+  - title: AI應用思維
+    children:
+      - title: AI應用框架
+        url: /guide/ai-framework
+      - title: 商業框架
+        url: /guide/business-framework
+  - title: AI應用實踐
+    children:
+      - title: 文字生成類
+        url: /ai-tools/text-generation
+      - title: 圖片生成類
+        url: /ai-tools/image-generation
+      - title: 聲音生成類
+        url: /ai-tools/audio-generation
+      - title: 影片生成類
+        url: /ai-tools/video-generation
+
+# 網站顏色方案
+colors:
+  primary: "#3eaf7c"
+  secondary: "#2c3e50"
+  accent: "#42b983"
+
+# 自定義樣式
+sass:
+  style: compressed
