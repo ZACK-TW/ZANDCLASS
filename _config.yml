@@ -1,8 +1,7 @@
 title: ZANDCLASS
 description: AI賦能 邁向卓越 直至超越
-theme: jekyll-theme-minimal
 
-# 作者資訊
+# 作者信息
 author:
   name: Zachary Wu
   title: 藍海培訓顧問有限公司 負責人
@@ -13,14 +12,14 @@ author:
 
 # 導航設定
 navigation:
-  - title: AI應用思維
-    children:
+  - section: AI應用思維
+    items:
       - title: AI應用框架
         url: /guide/ai-framework
       - title: 商業框架
         url: /guide/business-framework
-  - title: AI應用實踐
-    children:
+  - section: AI應用實踐
+    items:
       - title: 文字生成類
         url: /ai-tools/text-generation
       - title: 圖片生成類
@@ -30,11 +29,23 @@ navigation:
       - title: 影片生成類
         url: /ai-tools/video-generation
 
-# GitHub 設定
-github:
-  is_project_page: true
-  repository_url: https://github.com/ZACK-TW/ZANDCLASS
-  
-# 社交媒體連結
-social:
-  linktree: # 您的 Linktree 連結
+# 網站設定
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+  - LICENSE
+
+# 域名設定
+url: "https://zack-tw.github.io"
+baseurl: "/ZANDCLASS"
+
+# 語言設定
+lang: zh-TW

@@ -1,59 +1,74 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "zh-TW" }}">
-  <head>
+<html lang="zh-TW">
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>{{ site.title }}</h1>
-        <h2>{{ site.description }}</h2>
-        
-        <!-- 導航菜單 -->
-        <nav class="nav-menu">
-          {% for section in site.navigation %}
-            <div class="nav-section">
-              <h3>{{ section.title }}</h3>
-              <ul>
-                {% for item in section.children %}
-                  <li>
-                    <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
-                      {{ item.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endfor %}
-        </nav>
-
-        <!-- 作者資訊 -->
-        <div class="author-info">
-          <h3>站長</h3>
-          <h4>{{ site.author.name }}</h4>
-          <p class="title">{{ site.author.title }}</p>
-          <p class="bio">{{ site.author.bio }}</p>
-          <p class="education">{{ site.author.education }}</p>
-          <p class="skills">{{ site.author.skills }}</p>
-          <p class="book">{{ site.author.book }}</p>
-          
-          {% if site.social.linktree %}
-          <p class="social">
-            <a href="{{ site.social.linktree }}" target="_blank" rel="noopener">
-              Linktree
-            </a>
-          </p>
-          {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <!-- 左側目錄 -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
         </div>
-      </header>
+        
+        <!-- AI應用思維 -->
+        <div class="menu-section">
+            <details open>
+                <summary>AI應用思維</summary>
+                <ul>
+                    <li><a href="/guide/ai-framework" {% if page.url == '/guide/ai-framework' %}class="active"{% endif %}>AI應用框架</a></li>
+                    <li><a href="/guide/business-framework" {% if page.url == '/guide/business-framework' %}class="active"{% endif %}>商業框架</a></li>
+                </ul>
+            </details>
+        </div>
 
-      <section>
-        {{ content }}
-      </section>
-    </div>
-  </body>
+        <!-- AI應用實踐 -->
+        <div class="menu-section">
+            <details open>
+                <summary>AI應用實踐</summary>
+                <ul>
+                    <li><a href="/ai-tools/text-generation" {% if page.url == '/ai-tools/text-generation' %}class="active"{% endif %}>文字生成類</a></li>
+                    <li><a href="/ai-tools/image-generation" {% if page.url == '/ai-tools/image-generation' %}class="active"{% endif %}>圖片生成類</a></li>
+                    <li><a href="/ai-tools/audio-generation" {% if page.url == '/ai-tools/audio-generation' %}class="active"{% endif %}>聲音生成類</a></li>
+                    <li><a href="/ai-tools/video-generation" {% if page.url == '/ai-tools/video-generation' %}class="active"{% endif %}>影片生成類</a></li>
+                </ul>
+            </details>
+        </div>
+
+        <!-- 站長資訊 -->
+        <div class="menu-section author-section">
+            <details>
+                <summary>站長資訊</summary>
+                <div class="author-info">
+                    <h3>Zachary Wu</h3>
+                    <p>藍海培訓顧問有限公司 負責人</p>
+                    <p>著作《智能轉型 AI在商業世界的實踐指南》</p>
+                </div>
+            </details>
+        </div>
+    </nav>
+
+    <!-- 右側文章內容 -->
+    <main class="content">
+        <article class="markdown-body">
+            {{ content }}
+        </article>
+    </main>
+
+    <!-- 移動端選單按鈕 -->
+    <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+    </button>
+
+    <script>
+        // 移動端選單切換
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
 </html>
