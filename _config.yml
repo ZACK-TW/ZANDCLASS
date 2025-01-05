@@ -1,51 +1,59 @@
+# 網站基本信息
 title: ZANDCLASS
-description: AI賦能 邁向卓越 直至超越
+tagline: AI賦能 邁向卓越 直至超越
+description: 這是一個從現實生活出發的AI落地應用資訊站，提供獨到的思維導航和實操的成果展示。
 
 # 作者信息
 author:
   name: Zachary Wu
   title: 藍海培訓顧問有限公司 負責人
-  bio: 曾任職出版業十餘年，具產品、業務、銷售、倉儲、管理 多元職務經歷
-  education: 輔仁大學法律學院畢業
-  skills: AI培訓 / 知識數位化 / 自媒體 / 攝影 / 平面設計 / 出版製作
-  book: 著作《智能轉型 AI在商業世界的實踐指南》
+  works: 著作《智能轉型 AI在商業世界的實踐指南》
 
-# 導航設定
-navigation:
-  - section: AI應用思維
-    items:
-      - title: AI應用框架
-        url: /guide/ai-framework
-      - title: 商業框架
-        url: /guide/business-framework
-  - section: AI應用實踐
-    items:
-      - title: 文字生成類
-        url: /ai-tools/text-generation
-      - title: 圖片生成類
-        url: /ai-tools/image-generation
-      - title: 聲音生成類
-        url: /ai-tools/audio-generation
-      - title: 影片生成類
-        url: /ai-tools/video-generation
+# GitHub 設定
+repository: ZACK-TW/ZANDCLASS
+url: https://zack-tw.github.io
+baseurl: /ZANDCLASS
 
-# 網站設定
+# 主選單設定
+menu_groups:
+  - name: AI應用思維
+    link: /ai-thinking
+    items:
+      - name: AI應用框架
+        link: /ai-thinking/framework
+      - name: 商業框架
+        link: /ai-thinking/business
+
+  - name: AI應用實踐
+    link: /ai-practice
+    items:
+      - name: 文字生成類
+        link: /ai-practice/text
+        description: 探索文字生成的應用
+      - name: 圖片生成類
+        link: /ai-practice/image
+        description: 了解圖像生成的可能性
+      - name: 聲音生成類
+        link: /ai-practice/audio
+        description: 發掘語音應用的潛力
+      - name: 影片生成類
+        link: /ai-practice/video
+        description: 探索影片製作的新方向
+
+# 建置設定
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-seo-tag
 
-# 排除文件
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - README.md
-  - LICENSE
-
-# 域名設定
-url: "https://zack-tw.github.io"
-baseurl: "/ZANDCLASS"
+# 網站特色
+features:
+  - 從實際需求出發
+  - 提供完整的思維框架
+  - 分享具體的應用案例
+  - 持續更新最新資訊
 
 # 語言設定
 lang: zh-TW
