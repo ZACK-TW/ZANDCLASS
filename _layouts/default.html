@@ -3,50 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+    <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-    <div class="container">
-        <!-- 左側導航欄 -->
-        <div class="sidebar">
-            <h1 class="site-title">ZANDCLASS</h1>
-            <div class="site-description">AI賦能 邁向卓越 直至超越</div>
+    <div class="page-container">
+        <!-- 導航欄 -->
+        <nav class="nav-menu">
+            <div class="nav-header">
+                <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <p>{{ site.slogan }}</p>
+            </div>
             
-            <nav class="site-nav">
-                <div class="nav-group">
-                    <div class="nav-title">AI應用思維</div>
+            <div class="nav-content">
+                {% for section in site.navigation %}
+                <div class="nav-section">
+                    <h2>{{ section.section }}</h2>
                     <ul>
-                        <li><a href="{{ '/guide/ai-framework' | relative_url }}">AI應用框架</a></li>
-                        <li><a href="{{ '/guide/business-framework' | relative_url }}">商業框架</a></li>
+                        {% for item in section.items %}
+                        <li>
+                            <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
+                                {{ item.title }}
+                            </a>
+                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
+                {% endfor %}
 
-                <div class="nav-group">
-                    <div class="nav-title">AI應用實踐</div>
-                    <ul>
-                        <li><a href="{{ '/ai-tools/text-generation' | relative_url }}">文字生成類</a></li>
-                        <li><a href="{{ '/ai-tools/image-generation' | relative_url }}">圖片生成類</a></li>
-                        <li><a href="{{ '/ai-tools/audio-generation' | relative_url }}">聲音生成類</a></li>
-                        <li><a href="{{ '/ai-tools/video-generation' | relative_url }}">影片生成類</a></li>
-                    </ul>
-                </div>
-
-                <div class="nav-group">
-                    <div class="nav-title">站長資訊</div>
-                    <div class="author-info">
-                        <p>Zachary Wu</p>
-                        <p>藍海培訓顧問有限公司 負責人</p>
-                        <p>著作《智能轉型 AI在商業世界的實踐指南》</p>
+                <div class="author-info">
+                    <h2>站長</h2>
+                    <div class="author-details">
+                        <p class="author-name">{{ site.author.name }}</p>
+                        <p class="author-title">{{ site.author.title }}</p>
+                        <p class="author-book">{{ site.author.book }}</p>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
 
-        <!-- 主要內容區 -->
-        <div class="main-content">
+        <!-- 主要內容 -->
+        <main class="main-content">
             {{ content }}
-        </div>
+        </main>
     </div>
+
+    <!-- 移動端菜單按鈕 -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+    </button>
+
+    <script>
+        // 移動端菜單控制
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

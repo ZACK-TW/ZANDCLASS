@@ -11,17 +11,17 @@ title: 歡迎來到 ZANDCLASS
 
 透過系統化的框架，幫助您建立完整的AI應用觀念：
 
-- [AI應用框架]({{ '/ai-thinking/framework' | relative_url }}) - 了解AI應用的核心原理與架構
-- [商業框架]({{ '/ai-thinking/business' | relative_url }}) - 探索AI在商業中的實踐方法
+- AI應用框架 - 了解AI應用的核心原理與架構
+- 商業框架 - 探索AI在商業中的實踐方法
 
 ## AI應用實踐
 
 實際的AI應用案例和工具使用指南：
 
-- [文字生成類]({{ '/ai-practice/text' | relative_url }}) - 探索文字生成的應用
-- [圖片生成類]({{ '/ai-practice/image' | relative_url }}) - 了解圖像生成的可能性
-- [聲音生成類]({{ '/ai-practice/audio' | relative_url }}) - 發掘語音應用的潛力
-- [影片生成類]({{ '/ai-practice/video' | relative_url }}) - 探索影片製作的新方向
+- 文字生成類 - 探索文字生成的應用
+- 圖片生成類 - 了解圖像生成的可能性
+- 聲音生成類 - 發掘語音應用的潛力
+- 影片生成類 - 探索影片製作的新方向
 
 ## 站點特色
 
